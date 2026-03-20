@@ -4,50 +4,41 @@ const Challenge = require("../models/Challenge");
 const Progress = require("../models/Progress");
 const auth = require("../middleware/authMiddleware");
 const mongoose = require("mongoose");
-// Get all challenges
-router.get("/", async (req, res) => {
+
+// ✅ 1. Specific routes PEHLE
+router.get("/my", auth, async (req, res) => {
   try {
-    const challenges = await Challenge.find();
+    const userId = req.user.id;
+    const challenges = await Challenge.find({ 
+      participants: new mongoose.Types.ObjectId(userId) 
+    });
     res.json(challenges);
   } catch (err) {
     res.status(500).json({ message: err.message });
   }
 });
 
-// Enroll in a challenge
+// ✅ 2. Enroll
 router.post("/enroll/:id", auth, async (req, res) => {
   try {
     const challenge = await Challenge.findById(req.params.id);
     if (!challenge) return res.status(404).json({ message: "Challenge not found" });
 
     const userId = req.user.id;
-
-  if (challenge.participants.find(p => p.toString() === userId)) {
-  return res.status(400).json({ message: "Already enrolled" });
-}
+    if (challenge.participants.find(p => p.toString() === userId)) {
+      return res.status(400).json({ message: "Already enrolled" });
+    }
 
     challenge.participants.push(userId);
     await challenge.save();
-
-
-    res.json({ message: "Enrolled successfully " });
+    res.json({ message: "Enrolled successfully" });
   } catch (err) {
     console.error(err);
     res.status(500).json({ message: err.message });
   }
 });
-// Get user challenges (My Challenges screen)
-router.get("/my", auth, async (req, res) => {
-  try {
-    const userId = req.user.id;
-const challenges = await Challenge.find({ participants: new mongoose.Types.ObjectId(userId) });
-    res.json(challenges);
-  } catch (err) {
-    res.status(500).json({ message: err.message });
-  }
-});
 
-// Challenge detail + today's task (kept as you had it)
+// ✅ 3. Detail
 router.get("/detail/:challengeId", auth, async (req, res) => {
   try {
     const userId = req.user.id;
@@ -69,19 +60,20 @@ router.get("/detail/:challengeId", auth, async (req, res) => {
       }
     }
 
-    res.json({
-      challenge,
-      progress,
-      completedDays,
-      todayDay,
-      todayTask,
-    });
+    res.json({ challenge, progress, completedDays, todayDay, todayTask });
   } catch (err) {
     res.status(500).json({ message: err.message });
   }
 });
 
-
-
+// ✅ 4. Get all — LAST mein
+router.get("/", async (req, res) => {
+  try {
+    const challenges = await Challenge.find();
+    res.json(challenges);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+});
 
 module.exports = router;

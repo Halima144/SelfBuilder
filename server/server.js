@@ -6,7 +6,8 @@ const authRoutes = require("./routes/auth");
 const challengeRoutes = require("./routes/challengeRoutes");
 const progressRoutes = require("./routes/progressRoutes");
 const taskRoutes = require("./routes/taskRoutes");
-
+const leaderboardRoutes = require("./routes/leaderboardRoutes");
+const badgeRoutes = require("./routes/badgeRoutes");
 const app = express();
 
 // Middleware
@@ -21,7 +22,8 @@ app.use("/api/auth", authRoutes);
 app.use("/api/challenges", challengeRoutes);
 app.use("/api/challenges/progress", progressRoutes);
 app.use("/api/tasks", taskRoutes);
-
+app.use("/api/leaderboard", leaderboardRoutes);
+app.use("/api/badges", badgeRoutes);
 // Test server
 app.get("/", (req, res) => {
   res.send("Server is running");
