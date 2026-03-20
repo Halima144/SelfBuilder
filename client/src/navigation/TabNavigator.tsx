@@ -4,7 +4,7 @@ import Icon from "react-native-vector-icons/Feather";
 
 import Home from "../screens/Home/Home";
 import MyChallenges from "../screens/Home/MyChallenges";
-import Profile from "../screens/Home/Profile";
+import Profile from "../screens/Home/Profile/Profile";
 // import Feedback from "../screens/Home/Leaderboard";
 import Leaderboard from "../screens/Home/Leaderboard";
 
@@ -15,14 +15,14 @@ export default function TabNavigator() {
     <Tab.Navigator
       screenOptions={({ route }) => ({
         headerShown: false,
-        tabBarActiveTintColor: "#4f46e5",
+        tabBarActiveTintColor: "#ab73d1",
         tabBarInactiveTintColor: "gray",
         tabBarIcon: ({ color, size }) => {
           let iconName = "home";
 
           if (route.name === "Home") iconName = "home";
           if (route.name === "MyChallenges") iconName = "check-circle";
-          if (route.name === "Leaderboard") iconName = "edit";
+          if (route.name === "Leaderboard") iconName = "award";
           if (route.name === "Profile") iconName = "user";
 
           return <Icon name={iconName} size={size} color={color} />;
