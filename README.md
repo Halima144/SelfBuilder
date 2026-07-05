@@ -68,29 +68,29 @@ SelfBuilder/
 ### Authentication
 | Sign In | Create Account |
 |---|---|
-| ![Login](screenshots/login.png) | ![Signup](screenshots/signup.png) |
+| ![Login](login.png) | ![Signup](signup.png) |
 
 ### Home & Challenges
 | Explore Challenges | My Challenges |
 |---|---|
-| ![Home](screenshots/home_challenges.png) | ![My Challenges](screenshots/my_challenges.png) |
+| ![Home](home_challenges.png) | ![My Challenges](my_challenges.png) |
 
 ### Challenge Tracking
 | Health Challenge | Productivity Challenge |
 |---|---|
-| ![Health Challenge](screenshots/challenge_health.png) | ![Productivity Challenge](screenshots/challenge_productivity.png) |
+| ![Health Challenge](challenge_health.png) | ![Productivity Challenge](challenge_productivity.png) |
 
 Each challenge screen shows day-by-day progress, current streak, weekly activity, and today's task.
 
 ### Leaderboard
-![Leaderboard](screenshots/leaderboard.png)
+![Leaderboard](leaderboard.png)
 
 Users are ranked by completed challenges and active streaks, with category-based filters (Productivity, Mindset, Health).
 
 ### Profile
 | Profile | Edit Profile |
 |---|---|
-| ![Profile](screenshots/profile.png) | ![Edit Profile](screenshots/edit_profile.png) |
+| ![Profile](profile.png) | ![Edit Profile](edit_profile.png) |
 
 ---
 
@@ -103,29 +103,19 @@ Users are ranked by completed challenges and active streaks, with category-based
 
 ### Installation
 
-1. Clone the repository
-   git clone https://github.com/Halima144/SelfBuilder.git
-   cd SelfBuilder
+1. Clone the repository — run: git clone https://github.com/Halima144/SelfBuilder.git then cd SelfBuilder
 
-2. Install backend dependencies
-   cd server
-   npm install
+2. Install backend dependencies — run: cd server then npm install
 
-3. Install frontend dependencies
-   cd ../client
-   npm install
+3. Install frontend dependencies — run: cd ../client then npm install
 
-4. Set up environment variables in server/.env
+4. Set up environment variables in server/.env file:
    MONGO_URI=your_mongodb_connection_string
    PORT=5000
 
-5. Run the backend server
-   cd server
-   npm start
+5. Run the backend server — run: cd server then npm start
 
-6. Run the React Native app
-   cd client
-   npx react-native run-android
+6. Run the React Native app — run: cd client then npx react-native run-android
 
 ---
 
