@@ -47,22 +47,6 @@ This project was developed as a Final Year Project for a Software Engineering de
 
 ---
 
-## 📂 Project Structure
-
-SelfBuilder/
-├── client/          # React Native frontend
-│   ├── screens/
-│   ├── components/
-│   └── ...
-├── server/          # Node.js + Express backend
-│   ├── models/
-│   ├── controllers/
-│   ├── routes/
-│   └── ...
-└── README.md
-
----
-
 ## 📸 Screenshots
 
 ### Authentication
@@ -91,31 +75,6 @@ Users are ranked by completed challenges and active streaks, with category-based
 | Profile | Edit Profile |
 |---|---|
 | ![Profile](profile.png) | ![Edit Profile](edit_profile.png) |
-
----
-
-## ⚙️ Getting Started
-
-### Prerequisites
-- Node.js and npm installed
-- React Native development environment set up (Android Studio for Android)
-- MongoDB Atlas account (or local MongoDB instance)
-
-### Installation
-
-1. Clone the repository — run: git clone https://github.com/Halima144/SelfBuilder.git then cd SelfBuilder
-
-2. Install backend dependencies — run: cd server then npm install
-
-3. Install frontend dependencies — run: cd ../client then npm install
-
-4. Set up environment variables in server/.env file:
-   MONGO_URI=your_mongodb_connection_string
-   PORT=5000
-
-5. Run the backend server — run: cd server then npm start
-
-6. Run the React Native app — run: cd client then npx react-native run-android
 
 ---
 
